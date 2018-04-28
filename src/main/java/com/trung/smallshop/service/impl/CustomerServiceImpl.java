@@ -9,6 +9,8 @@ import com.trung.smallshop.domain.entity.Customer;
 import com.trung.smallshop.repository.jpa.CustomerJpaRepository;
 import com.trung.smallshop.service.CustomerService;
 import com.trung.smallshop.service.mapping.CustomerServiceMapper;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Resource
 	private CustomerServiceMapper customerServiceMapper;
-	
+
 	@Override
 	public CustomerDto findById(Integer id) {
 		Optional<Customer> optionalCustomer = customerJpaRepository.findById(id);

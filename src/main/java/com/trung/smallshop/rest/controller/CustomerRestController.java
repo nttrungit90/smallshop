@@ -6,6 +6,8 @@ package com.trung.smallshop.rest.controller;
 
 import com.trung.smallshop.domain.dto.CustomerDto;
 import com.trung.smallshop.service.CustomerService;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -18,12 +20,13 @@ import java.util.List;
  * Spring MVC controller for 'Customer' management.
  */
 @Controller
+@CacheConfig(cacheNames = "weblevelCache")
 public class CustomerRestController {
 
 	@Resource
 	private CustomerService customerService;
 
-	
+
 	@RequestMapping( value="/customers",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -33,6 +36,7 @@ public class CustomerRestController {
 		return customerService.findAll();
 	}
 
+	@Cacheable
 	@RequestMapping( value="/customers/{id}",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -41,7 +45,7 @@ public class CustomerRestController {
 	public CustomerDto findOne(@PathVariable("id") Integer id) {
 		return customerService.findById(id);
 	}
-	
+
 	@RequestMapping( value="/customers",
 			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE)
