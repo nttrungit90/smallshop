@@ -6,7 +6,7 @@ package com.trung.smallshop.domain.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -6,11 +6,11 @@
 
 package com.trung.smallshop.domain.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-//import javax.validation.constraints.* ;
+//import jakarta.validation.constraints.* ;
 //import org.hibernate.validator.constraints.* ;
 
 /**

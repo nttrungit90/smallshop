@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM eclipse-temurin:25-jre
 VOLUME /tmp
 ARG JAR_FILE
 ADD ${JAR_FILE} smallshop-0.0.1-SNAPSHOT.jar
